@@ -1,0 +1,559 @@
+/* ============================================================
+   Custom Reveal.js Theme — AI Context Presentation
+   Clean light theme, Inter font, muted indigo accent
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── Root Variables ─────────────────────────────────────────── */
+:root {
+  --color-bg:         #fafafa;
+  --color-bg-alt:     #f0f2f8;
+  --color-surface:    #ffffff;
+  --color-border:     #e2e6f0;
+  --color-text:       #1a1d2e;
+  --color-muted:      #6b7280;
+  --color-accent:     #4f46e5;      /* indigo-600 */
+  --color-accent-lt:  #eef2ff;      /* indigo-50 */
+  --color-green:      #059669;
+  --color-red:        #dc2626;
+  --color-amber:      #d97706;
+  --color-tag-v:      #bbf7d0;      /* verified tag */
+  --color-tag-a:      #fef3c7;      /* assumption tag */
+  --color-tag-u:      #fee2e2;      /* unknown tag */
+
+  --font-sans:        'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:        'JetBrains Mono', 'Fira Code', monospace;
+  --radius:           10px;
+  --radius-sm:        6px;
+  --shadow:           0 2px 12px rgba(79, 70, 229, 0.08);
+  --shadow-card:      0 1px 4px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.05);
+}
+
+/* ── Reveal Core Overrides ──────────────────────────────────── */
+.reveal-viewport {
+  background: var(--color-bg);
+}
+
+.reveal {
+  font-family: var(--font-sans);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.reveal .slides section {
+  text-align: left;
+  padding: 0 2.4rem;
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  color: var(--color-text);
+  text-transform: none;
+  margin-bottom: 0.5em;
+}
+
+.reveal h1 { font-size: 2.2em; }
+.reveal h2 { font-size: 1.55em; }
+.reveal h3 { font-size: 1.15em; color: var(--color-accent); }
+.reveal h4 { font-size: 0.95em; font-weight: 600; }
+
+.reveal p  { line-height: 1.65; color: var(--color-muted); font-size: 0.82em; }
+.reveal li { line-height: 1.7; color: var(--color-text); }
+
+.reveal strong { font-weight: 600; color: var(--color-text); }
+
+/* Accent span helpers */
+.accent   { color: var(--color-accent); }
+.muted    { color: var(--color-muted); font-weight: 300; }
+.lede     { font-size: 0.88em; color: var(--color-muted); font-weight: 400; }
+
+/* ── Slide number ───────────────────────────────────────────── */
+.reveal .slide-number {
+  background: transparent;
+  color: var(--color-muted);
+  font-size: 0.45em;
+  font-family: var(--font-sans);
+  right: 16px;
+  bottom: 10px;
+}
+
+/* ── Progress bar ───────────────────────────────────────────── */
+.reveal .progress {
+  height: 3px;
+  color: var(--color-accent);
+}
+.reveal .progress span {
+  background: var(--color-accent);
+}
+
+/* ── Controls ───────────────────────────────────────────────── */
+.reveal .controls {
+  color: var(--color-accent);
+}
+
+/* ── Title Slide ────────────────────────────────────────────── */
+.slide-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 3rem !important;
+}
+
+.slide-title .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-accent-lt);
+  color: var(--color-accent);
+  font-size: 0.5em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.35em 0.8em;
+  border-radius: 999px;
+  margin-bottom: 1.2em;
+  width: fit-content;
+}
+
+.slide-title h1 {
+  font-size: 2.0em;
+  line-height: 1.12;
+  max-width: 16ch;
+  margin-bottom: 0.5em;
+}
+
+.slide-title .subtitle {
+  font-size: 0.56em;
+  color: var(--color-muted);
+  font-weight: 400;
+  border-top: 1.5px solid var(--color-border);
+  padding-top: 0.8em;
+  margin-top: 0.2em;
+}
+
+.slide-title .roles {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.6em;
+}
+
+.role-badge {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.25em 0.75em;
+  font-size: 0.48em;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* ── Section Header Slides ──────────────────────────────────── */
+.slide-section {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  background: var(--color-accent) !important;
+}
+
+.slide-section h2 {
+  color: white !important;
+  font-size: 1.8em;
+}
+
+.slide-section .section-num {
+  font-size: 0.5em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.5em;
+}
+
+.slide-section p {
+  color: rgba(255,255,255,0.75) !important;
+  font-size: 0.65em;
+}
+
+/* ── Cards & Columns ────────────────────────────────────────── */
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 0.8rem;
+}
+
+.cols-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.card-bad {
+  border-color: #fca5a5;
+  background: #fff5f5;
+}
+
+.card-good {
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+.card-label {
+  font-size: 0.45em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+
+.card-bad .card-label  { color: var(--color-red); }
+.card-good .card-label { color: var(--color-green); }
+
+.card h4 {
+  font-size: 0.62em;
+  margin-bottom: 0.4em;
+}
+
+.card p, .card li {
+  font-size: 0.55em;
+  line-height: 1.6;
+}
+
+.card ul { padding-left: 1.2em; }
+
+/* ── Code blocks ────────────────────────────────────────────── */
+.reveal pre {
+  width: 100%;
+  box-shadow: none;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  margin: 0.6em 0;
+}
+
+.reveal pre code {
+  font-family: var(--font-mono);
+  font-size: 0.52em;
+  line-height: 1.6;
+  padding: 1rem 1.2rem;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-radius: var(--radius-sm);
+}
+
+.reveal code {
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+  background: var(--color-accent-lt);
+  color: var(--color-accent);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+}
+
+/* ── Hierarchy / Pyramid diagram ────────────────────────────── */
+.hierarchy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.6rem 0;
+}
+
+.h-level {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  font-size: 0.52em;
+  font-weight: 600;
+  padding: 0.5em 1.2em;
+  color: white;
+  transition: transform 0.2s;
+}
+
+.h-level:nth-child(1) { width: 80%; background: #818cf8; }
+.h-level:nth-child(2) { width: 68%; background: #6366f1; }
+.h-level:nth-child(3) { width: 56%; background: #4f46e5; }
+.h-level:nth-child(4) { width: 44%; background: #4338ca; }
+.h-level:nth-child(5) { width: 32%; background: #3730a3; }
+
+.h-label-right {
+  font-size: 0.44em;
+  color: var(--color-muted);
+  text-align: right;
+  align-self: flex-end;
+  margin-top: -0.2em;
+}
+
+/* ── Tags ────────────────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  font-size: 0.42em;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  padding: 0.25em 0.6em;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.tag-verified   { background: var(--color-tag-v); color: #065f46; }
+.tag-assumption { background: var(--color-tag-a); color: #92400e; }
+.tag-unknown    { background: var(--color-tag-u); color: #991b1b; }
+
+/* ── Doc file list ───────────────────────────────────────────── */
+.doc-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0;
+}
+
+.doc-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.35em 0.7em;
+  font-size: 0.5em;
+  font-weight: 500;
+}
+
+.doc-list li .doc-num {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: var(--color-accent);
+  font-weight: 600;
+  min-width: 2ch;
+}
+
+/* ── Principle cards ─────────────────────────────────────────── */
+.principles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+}
+
+.principle {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+}
+
+.principle-icon {
+  font-size: 1.1em;
+  flex-shrink: 0;
+  margin-top: 0.05em;
+}
+
+.principle-body h4 {
+  font-size: 0.55em;
+  margin: 0 0 0.2em;
+  color: var(--color-text);
+}
+
+.principle-body p {
+  font-size: 0.48em;
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* ── Role audience pills ─────────────────────────────────────── */
+.audience-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--color-accent);
+  color: white;
+  font-size: 0.52em;
+  font-weight: 600;
+  padding: 0.3em 0.8em;
+  border-radius: 999px;
+  margin-bottom: 0.5em;
+}
+
+/* ── Before/After comparison ─────────────────────────────────── */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.compare-side {
+  border-radius: var(--radius);
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--color-border);
+}
+
+.compare-side.before {
+  background: #fff5f5;
+  border-color: #fca5a5;
+}
+
+.compare-side.after {
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+
+.compare-side .compare-label {
+  font-size: 0.44em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.4em;
+}
+
+.compare-side.before .compare-label { color: var(--color-red); }
+.compare-side.after  .compare-label { color: var(--color-green); }
+
+.compare-side p, .compare-side li {
+  font-size: 0.52em;
+  line-height: 1.6;
+}
+
+.compare-side ul { padding-left: 1.2em; }
+
+/* ── CRM vision ──────────────────────────────────────────────── */
+.crm-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.crm-box {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.9rem;
+  font-size: 0.5em;
+  font-weight: 600;
+  text-align: center;
+  min-width: 7em;
+  box-shadow: var(--shadow-card);
+}
+
+.crm-box.highlight {
+  background: var(--color-accent-lt);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.crm-arrow {
+  font-size: 0.55em;
+  color: var(--color-muted);
+}
+
+/* ── Roadmap steps ───────────────────────────────────────────── */
+.roadmap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+}
+
+.roadmap-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8em;
+  height: 1.8em;
+  background: var(--color-accent);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.55em;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.1em;
+}
+
+.step-body h4 {
+  font-size: 0.58em;
+  margin: 0 0 0.15em;
+}
+
+.step-body p {
+  font-size: 0.5em;
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* ── Summary / Close ─────────────────────────────────────────── */
+.slide-close {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.slide-close .big-quote {
+  font-size: 1.1em;
+  font-weight: 700;
+  line-height: 1.25;
+  max-width: 22ch;
+  color: var(--color-text);
+  margin-bottom: 0.5em;
+}
+
+.slide-close .big-quote em {
+  color: var(--color-accent);
+  font-style: normal;
+}
+
+/* ── Horizontal rule ─────────────────────────────────────────── */
+.reveal hr {
+  border: none;
+  border-top: 1.5px solid var(--color-border);
+  margin: 0.6em 0;
+}
+
+/* ── Utility ─────────────────────────────────────────────────── */
+.small  { font-size: 0.55em !important; color: var(--color-muted); }
+.mt     { margin-top: 0.6rem; }
+.center { text-align: center; }
+.reveal ul { padding-left: 1.3em; }
+.reveal ul li { font-size: 0.72em; margin-bottom: 0.25em; }
+
+/* Slide-level background override */
+.bg-alt { background: var(--color-bg-alt) !important; }
