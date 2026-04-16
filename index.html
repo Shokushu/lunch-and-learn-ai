@@ -1,404 +1,423 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>L'IA, c'est aussi puissant que le contexte qu'on lui donne</title>
-  <meta name="description" content="Atelier équipe — Comment le contexte améliore les résultats de l'IA. Exemple concret avec le système /docs d'AllDressed." />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L'IA, c'est aussi puissant que le contexte qu'on lui donne</title>
+    <meta name="description"
+        content="Atelier équipe — Comment le contexte améliore les résultats de l'IA. Exemple concret avec le système /docs d'AllDressed." />
 
-  <!-- Reveal.js 5 via CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" />
+    <!-- Reveal.js 5 via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" />
 
-  <!-- Custom theme (overrides white.css) -->
-  <link rel="stylesheet" href="css/theme.css" />
+    <!-- Custom theme (overrides white.css) -->
+    <link rel="stylesheet" href="css/theme.css" />
 
-  <!-- Syntax highlighting -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css" />
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css" />
 </head>
-<body>
-<div class="reveal">
-<div class="slides">
 
-<!-- ═══════════════════════════════════════════════════════════════════
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 1 — Titre
      ═══════════════════════════════════════════════════════════════════ -->
-<section class="slide-title">
-  <div class="eyebrow">✦ Atelier &nbsp;—&nbsp; Lunch &amp; Learn</div>
-  <h1>L'IA, c'est aussi puissant que le <span class="accent">contexte</span> qu'on lui donne</h1>
-  <div class="subtitle">
-    Comment structurer l'information pour que l'IA travaille comme un vrai membre de l'équipe
-    <div class="roles mt">
-      <span class="role-badge">👩‍💻 Développeurs</span>
-      <span class="role-badge">🎨 Designers</span>
-      <span class="role-badge">📋 Chefs de projet</span>
-    </div>
-  </div>
-</section>
+            <section class="slide-title">
+                <div class="eyebrow">✦ Atelier &nbsp;—&nbsp; Lunch &amp; Learn</div>
+                <h1>L'IA, c'est aussi puissant que le <span class="accent">contexte</span> qu'on lui donne</h1>
+                <div class="subtitle">
+                    Comment structurer l'information pour que l'IA travaille comme un vrai membre de l'équipe
+                    <div class="roles mt">
+                        <span class="role-badge">👩‍💻 Développeurs</span>
+                        <span class="role-badge">🎨 Designers</span>
+                        <span class="role-badge">📋 Chefs de projet</span>
+                    </div>
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SECTION HEADER — Phase 1: Le Problème
      ═══════════════════════════════════════════════════════════════════ -->
-<section class="slide-section">
-  <div class="section-num">Phase 1</div>
-  <h2>Le constat</h2>
-  <p>Pourquoi l'IA répond souvent à côté</p>
-</section>
+            <section class="slide-section">
+                <div class="section-num">Phase 1</div>
+                <h2>Le constat</h2>
+                <p>Pourquoi l'IA répond souvent à côté</p>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 2 — Le constat
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <h2>Prompt sans contexte → réponse générique</h2>
-  <p class="lede">La même question produit des résultats radicalement différents selon le contexte fourni.</p>
+            <section>
+                <h2>Prompt sans contexte → réponse générique</h2>
+                <p class="lede">La même question produit des résultats radicalement différents selon le contexte fourni.
+                </p>
 
-  <div class="cols">
-    <div class="card card-bad">
-      <div class="card-label">❌ Sans contexte</div>
-      <h4>Prompt:</h4>
-      <p><em>"Comment gérer les abonnements annulés dans mon app?"</em></p>
-      <hr />
-      <h4>Réponse de l'IA:</h4>
-      <ul>
-        <li>Utilisez un champ <code>status = 'cancelled'</code></li>
-        <li>Envoyez un email de confirmation</li>
-        <li>Mettez fin à la facturation</li>
-        <li>Offrez une période de grâce de 30 jours</li>
-      </ul>
-      <p class="small mt">→ Réponse inventée. Rien de spécifique à votre domaine.</p>
-    </div>
+                <div class="cols">
+                    <div class="card card-bad">
+                        <div class="card-label">❌ Sans contexte</div>
+                        <h4>Prompt:</h4>
+                        <p><em>"Comment gérer les abonnements annulés dans mon app?"</em></p>
+                        <hr />
+                        <h4>Réponse de l'IA:</h4>
+                        <ul>
+                            <li>Utilisez un champ <code>status = 'cancelled'</code></li>
+                            <li>Envoyez un email de confirmation</li>
+                            <li>Mettez fin à la facturation</li>
+                            <li>Offrez une période de grâce de 30 jours</li>
+                        </ul>
+                        <p class="small mt">→ Réponse inventée. Rien de spécifique à votre domaine.</p>
+                    </div>
 
-    <div class="card card-good">
-      <div class="card-label">✅ Avec contexte</div>
-      <h4>Prompt + contexte:</h4>
-      <p><em>"Comment gérer les abonnements annulés?"</em> + doc architecture, état des abonnements, glossaire</p>
-      <hr />
-      <h4>Réponse de l'IA:</h4>
-      <ul>
-        <li>Transition vers <code>cancelled</code> via la machine d'état</li>
-        <li>Déclencher le job <code>ProcessCancellation</code></li>
-        <li>Respecter la règle de cut-off du jeudi</li>
-        <li>Pas de période de grâce — selon doc 02</li>
-      </ul>
-      <p class="small mt">→ Réponse alignée sur votre architecture réelle.</p>
-    </div>
-  </div>
-</section>
+                    <div class="card card-good">
+                        <div class="card-label">✅ Avec contexte</div>
+                        <h4>Prompt + contexte:</h4>
+                        <p><em>"Comment gérer les abonnements annulés?"</em> + doc architecture, état des abonnements,
+                            glossaire</p>
+                        <hr />
+                        <h4>Réponse de l'IA:</h4>
+                        <ul>
+                            <li>Transition vers <code>cancelled</code> via la machine d'état</li>
+                            <li>Déclencher le job <code>ProcessCancellation</code></li>
+                            <li>Respecter la règle de cut-off du jeudi</li>
+                            <li>Pas de période de grâce — selon doc 02</li>
+                        </ul>
+                        <p class="small mt">→ Réponse alignée sur votre architecture réelle.</p>
+                    </div>
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 3 — Pourquoi ça arrive?
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <h2>Pourquoi ça arrive?</h2>
+            <section>
+                <h2>Pourquoi ça arrive?</h2>
 
-  <div class="cols">
-    <div>
-      <div class="card" style="border-left: 3px solid var(--color-accent);">
-        <h4>🧠 L'IA n'a pas de mémoire persistante</h4>
-        <p>Chaque nouvelle session repart de zéro. L'IA ne connaît pas votre projet, vos conventions, votre historique de décisions.</p>
-      </div>
-      <div class="card mt" style="border-left: 3px solid var(--color-accent);">
-        <h4>📚 Elle raisonne sur ce qu'on lui donne</h4>
-        <p>L'IA est très bonne pour inférer et généraliser — mais elle invente ce qu'elle ne connaît pas. Si vous ne le lui dites pas, elle devine.</p>
-      </div>
-    </div>
-    <div>
-      <div class="card" style="border-left: 3px solid var(--color-amber);">
-        <h4>⚠️ Le résultat sans contexte</h4>
-        <ul>
-          <li>Terminologie incorrecte ou inventée</li>
-          <li>Architecture qui ne correspond pas au projet</li>
-          <li>Règles d'affaires ignorées ou mal appliquées</li>
-          <li>Code à réécrire plutôt qu'à intégrer</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+                <div class="cols">
+                    <div>
+                        <div class="card" style="border-left: 3px solid var(--color-accent);">
+                            <h4>🧠 L'IA n'a pas de mémoire persistante</h4>
+                            <p>Chaque nouvelle session repart de zéro. L'IA ne connaît pas votre projet, vos
+                                conventions, votre historique de décisions.</p>
+                        </div>
+                        <div class="card mt" style="border-left: 3px solid var(--color-accent);">
+                            <h4>📚 Elle raisonne sur ce qu'on lui donne</h4>
+                            <p>L'IA est très bonne pour inférer et généraliser — mais elle invente ce qu'elle ne connaît
+                                pas. Si vous ne le lui dites pas, elle devine.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card" style="border-left: 3px solid var(--color-amber);">
+                            <h4>⚠️ Le résultat sans contexte</h4>
+                            <ul>
+                                <li>Terminologie incorrecte ou inventée</li>
+                                <li>Architecture qui ne correspond pas au projet</li>
+                                <li>Règles d'affaires ignorées ou mal appliquées</li>
+                                <li>Code à réécrire plutôt qu'à intégrer</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SECTION HEADER — Phase 2: Qu'est-ce que le contexte?
      ═══════════════════════════════════════════════════════════════════ -->
-<section class="slide-section">
-  <div class="section-num">Phase 2</div>
-  <h2>Qu'est-ce que le « contexte » pour l'IA?</h2>
-  <p>Les couches d'information qui transforment une réponse générique en réponse précise</p>
-</section>
+            <section class="slide-section">
+                <div class="section-num">Phase 2</div>
+                <h2>Qu'est-ce que le « contexte » pour l'IA?</h2>
+                <p>Les couches d'information qui transforment une réponse générique en réponse précise</p>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 4 — Définition du contexte
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <h2>Le contexte, c'est tout ce que l'IA doit savoir</h2>
-  <p class="lede">Pour reproduire le raisonnement d'un expert de votre équipe.</p>
+            <section>
+                <h2>Le contexte, c'est tout ce que l'IA doit savoir</h2>
+                <p class="lede">Pour reproduire le raisonnement d'un expert de votre équipe.</p>
 
-  <div class="cols-3">
-    <div class="card">
-      <h4>🏗 Architecture</h4>
-      <p>Stack technique, patterns utilisés, structure des dossiers, choix de design</p>
-    </div>
-    <div class="card">
-      <h4>📖 Terminologie</h4>
-      <p>Glossaire métier, noms des entités, conventions de nommage propres au projet</p>
-    </div>
-    <div class="card">
-      <h4>⚖️ Règles d'affaires</h4>
-      <p>Contraintes, validations, cas limites, comportements attendus du domaine</p>
-    </div>
-    <div class="card">
-      <h4>🔄 États &amp; transitions</h4>
-      <p>Machines d'état, cycles de vie des entités, flux de données</p>
-    </div>
-    <div class="card">
-      <h4>🔗 Dépendances</h4>
-      <p>Services externes, APIs, librairies, contraintes d'intégration</p>
-    </div>
-    <div class="card">
-      <h4>❓ Incertitudes</h4>
-      <p>Ce qui est connu, supposé ou encore inconnu — honnêteté épistémique</p>
-    </div>
-  </div>
-</section>
+                <div class="cols-3">
+                    <div class="card">
+                        <h4>🏗 Architecture</h4>
+                        <p>Stack technique, patterns utilisés, structure des dossiers, choix de design</p>
+                    </div>
+                    <div class="card">
+                        <h4>📖 Terminologie</h4>
+                        <p>Glossaire métier, noms des entités, conventions de nommage propres au projet</p>
+                    </div>
+                    <div class="card">
+                        <h4>⚖️ Règles d'affaires</h4>
+                        <p>Contraintes, validations, cas limites, comportements attendus du domaine</p>
+                    </div>
+                    <div class="card">
+                        <h4>🔄 États &amp; transitions</h4>
+                        <p>Machines d'état, cycles de vie des entités, flux de données</p>
+                    </div>
+                    <div class="card">
+                        <h4>🔗 Dépendances</h4>
+                        <p>Services externes, APIs, librairies, contraintes d'intégration</p>
+                    </div>
+                    <div class="card">
+                        <h4>❓ Incertitudes</h4>
+                        <p>Ce qui est connu, supposé ou encore inconnu — honnêteté épistémique</p>
+                    </div>
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 5 — Hiérarchie du contexte
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <h2>Hiérarchie du contexte</h2>
-  <p class="lede">Du plus général au plus spécifique — chaque couche affine la réponse.</p>
+            <section>
+                <h2>Hiérarchie du contexte</h2>
+                <p class="lede">Du plus général au plus spécifique — chaque couche affine la réponse.</p>
 
-  <div class="hierarchy">
-    <div class="h-level">🌐 Tech Stack &amp; Architecture générale</div>
-    <div class="h-level">📦 Structure du projet &amp; patterns</div>
-    <div class="h-level">📖 Terminologie &amp; glossaire métier</div>
-    <div class="h-level">⚙️ Règles d'affaires &amp; cas limites</div>
-    <div class="h-level">🎯 Règle métier spécifique</div>
-  </div>
-  <div class="h-label-right small">
-    Plus spécifique →  Impact plus fort sur la précision de la réponse
-  </div>
-</section>
+                <div class="hierarchy">
+                    <div class="h-level">🌐 Tech Stack &amp; Architecture générale</div>
+                    <div class="h-level">📦 Structure du projet &amp; patterns</div>
+                    <div class="h-level">📖 Terminologie &amp; glossaire métier</div>
+                    <div class="h-level">⚙️ Règles d'affaires &amp; cas limites</div>
+                    <div class="h-level">🎯 Règle métier spécifique</div>
+                </div>
+                <div class="h-label-right small">
+                    Plus spécifique → Impact plus fort sur la précision de la réponse
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SECTION HEADER — Phase 3: Exemple réel
      ═══════════════════════════════════════════════════════════════════ -->
-<section class="slide-section">
-  <div class="section-num">Phase 3</div>
-  <h2>Exemple concret</h2>
-  <p>Le système <code style="background:rgba(255,255,255,0.2); color:white;">/docs</code> sur AllDressed</p>
-</section>
+            <section class="slide-section">
+                <div class="section-num">Phase 3</div>
+                <h2>Exemple concret</h2>
+                <p>Le système <code style="background:rgba(255,255,255,0.2); color:white;">/docs</code> sur AllDressed
+                </p>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 6 — Le dossier /docs
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <h2>Notre approche: le dossier <code>/docs</code></h2>
-  <p class="lede">10 fichiers structurés qui décrivent l'intégralité du projet pour l'IA.</p>
+            <section>
+                <h2>Notre approche: le dossier <code>/docs</code></h2>
+                <p class="lede">10 fichiers structurés qui décrivent l'intégralité du projet pour l'IA.</p>
 
-  <ul class="doc-list">
-    <li><span class="doc-num">01</span> Overview &amp; Résumé exécutif</li>
-    <li><span class="doc-num">02</span> Architecture technique</li>
-    <li><span class="doc-num">03</span> Logique métier &amp; règles</li>
-    <li><span class="doc-num">04</span> Composants &amp; modules</li>
-    <li><span class="doc-num">05</span> API &amp; interfaces</li>
-    <li><span class="doc-num">06</span> Modèles de données</li>
-    <li><span class="doc-num">07</span> Machines d'état</li>
-    <li><span class="doc-num">08</span> Config &amp; environnements</li>
-    <li><span class="doc-num">09</span> Dépendances externes</li>
-    <li><span class="doc-num">10</span> Hypothèses &amp; incertitudes</li>
-  </ul>
+                <ul class="doc-list">
+                    <li><span class="doc-num">01</span> Overview &amp; Résumé exécutif</li>
+                    <li><span class="doc-num">02</span> Architecture technique</li>
+                    <li><span class="doc-num">03</span> Logique métier &amp; règles</li>
+                    <li><span class="doc-num">04</span> Composants &amp; modules</li>
+                    <li><span class="doc-num">05</span> API &amp; interfaces</li>
+                    <li><span class="doc-num">06</span> Modèles de données</li>
+                    <li><span class="doc-num">07</span> Machines d'état</li>
+                    <li><span class="doc-num">08</span> Config &amp; environnements</li>
+                    <li><span class="doc-num">09</span> Dépendances externes</li>
+                    <li><span class="doc-num">10</span> Hypothèses &amp; incertitudes</li>
+                </ul>
 
-  <p class="small mt">→ Ces fichiers sont passés en contexte à l'IA avant chaque session de travail. L'IA connaît le projet.</p>
-</section>
+                <p class="small mt">→ Ces fichiers sont passés en contexte à l'IA avant chaque session de travail. L'IA
+                    connaît le projet.</p>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 7 — Ce que ça change concrètement
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <h2>Ce que ça change concrètement</h2>
-  <p class="lede">Trois exemples tirés du projet AllDressed.</p>
+            <section>
+                <h2>Ce que ça change concrètement</h2>
+                <p class="lede">Trois exemples tirés du projet AllDressed.</p>
 
-  <div class="cols-3">
-    <div class="card">
-      <h4>🔄 Machine d'état Mermaid</h4>
-      <p>La doc 07 contient le diagramme de transition des abonnements en Mermaid.</p>
-      <hr />
-      <p>→ L'IA ne génère <strong>aucune transition invalide</strong>. Elle connaît exactement les états possibles.</p>
-    </div>
-    <div class="card">
-      <h4>⚠️ Table des bords de cas</h4>
-      <p>La doc 03 liste les exceptions métier: <code>SkippedMenuException</code>, règles de cut-off, cas de panier vide.</p>
-      <hr />
-      <p>→ L'IA génère les <strong>guards corrects</strong> et ne manque aucun cas limite.</p>
-    </div>
-    <div class="card">
-      <h4>📖 Glossaire (doc 01)</h4>
-      <p>Skip, Cut-off, Choice, Item — termes spécifiques au domaine définis précisément.</p>
-      <hr />
-      <p>→ L'IA utilise <strong>les bons termes métier</strong>, pas des synonymes génériques.</p>
-    </div>
-  </div>
-</section>
+                <div class="cols-3">
+                    <div class="card">
+                        <h4>🔄 Machine d'état Mermaid</h4>
+                        <p>La doc 07 contient le diagramme de transition des abonnements en Mermaid.</p>
+                        <hr />
+                        <p>→ L'IA ne génère <strong>aucune transition invalide</strong>. Elle connaît exactement les
+                            états possibles.</p>
+                    </div>
+                    <div class="card">
+                        <h4>⚠️ Table des bords de cas</h4>
+                        <p>La doc 03 liste les exceptions métier: <code>SkippedMenuException</code>, règles de cut-off,
+                            cas de panier vide.</p>
+                        <hr />
+                        <p>→ L'IA génère les <strong>guards corrects</strong> et ne manque aucun cas limite.</p>
+                    </div>
+                    <div class="card">
+                        <h4>📖 Glossaire (doc 01)</h4>
+                        <p>Skip, Cut-off, Choice, Item — termes spécifiques au domaine définis précisément.</p>
+                        <hr />
+                        <p>→ L'IA utilise <strong>les bons termes métier</strong>, pas des synonymes génériques.</p>
+                    </div>
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 8 — Avant / Après
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <h2>Avant / Après — La même question</h2>
-  <p class="lede"><em>"Comment implémenter la logique de skip d'un abonnement?"</em></p>
+            <section>
+                <h2>Avant / Après — La même question</h2>
+                <p class="lede"><em>"Comment implémenter la logique de skip d'un abonnement?"</em></p>
 
-  <div class="compare">
-    <div class="compare-side before">
-      <div class="compare-label">❌ Avant — sans docs</div>
-      <ul>
-        <li>Crée un champ <code>is_skipped</code> dans la table</li>
-        <li>Envoie un email de confirmation</li>
-        <li>Désactive la commande pour cette semaine</li>
-        <li>Structure inventée, pas de mention des jobs</li>
-        <li>Ignore la contrainte du cut-off du jeudi</li>
-        <li>Pas de machine d'état → transitions arbitraires</li>
-      </ul>
-    </div>
+                <div class="compare">
+                    <div class="compare-side before">
+                        <div class="compare-label">❌ Avant — sans docs</div>
+                        <ul>
+                            <li>Crée un champ <code>is_skipped</code> dans la table</li>
+                            <li>Envoie un email de confirmation</li>
+                            <li>Désactive la commande pour cette semaine</li>
+                            <li>Structure inventée, pas de mention des jobs</li>
+                            <li>Ignore la contrainte du cut-off du jeudi</li>
+                            <li>Pas de machine d'état → transitions arbitraires</li>
+                        </ul>
+                    </div>
 
-    <div class="compare-side after">
-      <div class="compare-label">✅ Après — avec docs</div>
-      <ul>
-        <li>Transition <code>active → skipped</code> via <code>SubscriptionStateMachine</code></li>
-        <li>Vérification de la fenêtre de cut-off (jeudi 23h59)</li>
-        <li>Dispatch du job <code>ProcessSkipRequest</code> en queue</li>
-        <li>Controller thin → logique dans le service, pas le controller</li>
-        <li>Guard: lever <code>SkippedMenuException</code> si déjà sauté</li>
-        <li>Log de l'événement dans la table <code>subscription_events</code></li>
-      </ul>
-    </div>
-  </div>
-</section>
+                    <div class="compare-side after">
+                        <div class="compare-label">✅ Après — avec docs</div>
+                        <ul>
+                            <li>Transition <code>active → skipped</code> via <code>SubscriptionStateMachine</code></li>
+                            <li>Vérification de la fenêtre de cut-off (jeudi 23h59)</li>
+                            <li>Dispatch du job <code>ProcessSkipRequest</code> en queue</li>
+                            <li>Controller thin → logique dans le service, pas le controller</li>
+                            <li>Guard: lever <code>SkippedMenuException</code> si déjà sauté</li>
+                            <li>Log de l'événement dans la table <code>subscription_events</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 9 — Transparence des incertitudes
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <h2>Doc 10 — La transparence des incertitudes</h2>
-  <p class="lede">Dire à l'IA ce qu'on ne sait pas encore est aussi important que ce qu'on sait.</p>
+            <section>
+                <h2>Doc 10 — La transparence des incertitudes</h2>
+                <p class="lede">Dire à l'IA ce qu'on ne sait pas encore est aussi important que ce qu'on sait.</p>
 
-  <div class="card" style="margin-bottom: 0.8rem;">
-    <h4>Système de tags dans les docs</h4>
-    <div style="display:flex; gap:0.8rem; margin-top: 0.6rem; flex-wrap: wrap;">
-      <div>
-        <span class="tag tag-verified">[VERIFIED]</span>
-        <p class="small mt">Comportement testé et confirmé en production</p>
-      </div>
-      <div>
-        <span class="tag tag-assumption">[ASSUMPTION]</span>
-        <p class="small mt">Inférence logique, non testée explicitement</p>
-      </div>
-      <div>
-        <span class="tag tag-unknown">[UNKNOWN]</span>
-        <p class="small mt">Comportement incertain, à clarifier</p>
-      </div>
-    </div>
-  </div>
+                <div class="card" style="margin-bottom: 0.8rem;">
+                    <h4>Système de tags dans les docs</h4>
+                    <div style="display:flex; gap:0.8rem; margin-top: 0.6rem; flex-wrap: wrap;">
+                        <div>
+                            <span class="tag tag-verified">[VERIFIED]</span>
+                            <p class="small mt">Comportement testé et confirmé en production</p>
+                        </div>
+                        <div>
+                            <span class="tag tag-assumption">[ASSUMPTION]</span>
+                            <p class="small mt">Inférence logique, non testée explicitement</p>
+                        </div>
+                        <div>
+                            <span class="tag tag-unknown">[UNKNOWN]</span>
+                            <p class="small mt">Comportement incertain, à clarifier</p>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="cols">
-    <div class="card card-good">
-      <h4>Ce que ça permet</h4>
-      <ul>
-        <li>L'IA sait quand <strong>ne pas inventer</strong></li>
-        <li>Elle signale les zones d'incertitude</li>
-        <li>Elle propose des options plutôt que des certitudes</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h4>Exemple dans les docs</h4>
-      <pre style="font-size:0.4em; margin:0;"><code class="language-markdown">## Règle de cut-off
+                <div class="cols">
+                    <div class="card card-good">
+                        <h4>Ce que ça permet</h4>
+                        <ul>
+                            <li>L'IA sait quand <strong>ne pas inventer</strong></li>
+                            <li>Elle signale les zones d'incertitude</li>
+                            <li>Elle propose des options plutôt que des certitudes</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Exemple dans les docs</h4>
+                        <pre style="font-size:0.4em; margin:0;"><code class="language-markdown">## Règle de cut-off
 Le cut-off est fixé au jeudi à 23h59. [VERIFIED]
 
 La timezone utilisée est UTC-5. [ASSUMPTION]
 → À confirmer avec l'équipe infra.
 
 Comportement si le serveur est en retard: [UNKNOWN]</code></pre>
-    </div>
-  </div>
-</section>
+                    </div>
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SECTION HEADER — Phase 4: Principes pour tous
      ═══════════════════════════════════════════════════════════════════ -->
-<section class="slide-section">
-  <div class="section-num">Phase 4</div>
-  <h2>Les principes d'un bon contexte</h2>
-  <p>Pour chaque rôle dans l'équipe</p>
-</section>
+            <section class="slide-section">
+                <div class="section-num">Phase 4</div>
+                <h2>Les principes d'un bon contexte</h2>
+                <p>Pour chaque rôle dans l'équipe</p>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 10 — Les 5 principes
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <h2>Les 5 principes d'un bon contexte</h2>
+            <section>
+                <h2>Les 5 principes d'un bon contexte</h2>
 
-  <div class="principles">
-    <div class="principle">
-      <div class="principle-icon">📊</div>
-      <div class="principle-body">
-        <h4>1. Structuré</h4>
-        <p>Tables et listes plutôt que prose. L'IA traite mieux l'information structurée. Un tableau de règles métier > trois paragraphes d'explication.</p>
-      </div>
-    </div>
+                <div class="principles">
+                    <div class="principle">
+                        <div class="principle-icon">📊</div>
+                        <div class="principle-body">
+                            <h4>1. Structuré</h4>
+                            <p>Tables et listes plutôt que prose. L'IA traite mieux l'information structurée. Un tableau
+                                de règles métier > trois paragraphes d'explication.</p>
+                        </div>
+                    </div>
 
-    <div class="principle">
-      <div class="principle-icon">📖</div>
-      <div class="principle-body">
-        <h4>2. Terminologie d'abord</h4>
-        <p>Définir les termes métier avant tout. Si votre "Skip" ne correspond pas au Skip générique, l'IA doit le savoir dès le départ.</p>
-      </div>
-    </div>
+                    <div class="principle">
+                        <div class="principle-icon">📖</div>
+                        <div class="principle-body">
+                            <h4>2. Terminologie d'abord</h4>
+                            <p>Définir les termes métier avant tout. Si votre "Skip" ne correspond pas au Skip
+                                générique, l'IA doit le savoir dès le départ.</p>
+                        </div>
+                    </div>
 
-    <div class="principle">
-      <div class="principle-icon">🔄</div>
-      <div class="principle-body">
-        <h4>3. État explicite</h4>
-        <p>Documenter les états des données et les transitions. Les machines d'état en Mermaid sont particulièrement efficaces avec l'IA.</p>
-      </div>
-    </div>
+                    <div class="principle">
+                        <div class="principle-icon">🔄</div>
+                        <div class="principle-body">
+                            <h4>3. État explicite</h4>
+                            <p>Documenter les états des données et les transitions. Les machines d'état en Mermaid sont
+                                particulièrement efficaces avec l'IA.</p>
+                        </div>
+                    </div>
 
-    <div class="principle">
-      <div class="principle-icon">🔍</div>
-      <div class="principle-body">
-        <h4>4. Honnêteté épistémique</h4>
-        <p>Distinguer ce qu'on sait, ce qu'on suppose, et ce qu'on ignore. Tags [VERIFIED] / [ASSUMPTION] / [UNKNOWN].</p>
-      </div>
-    </div>
+                    <div class="principle">
+                        <div class="principle-icon">🔍</div>
+                        <div class="principle-body">
+                            <h4>4. Honnêteté épistémique</h4>
+                            <p>Distinguer ce qu'on sait, ce qu'on suppose, et ce qu'on ignore. Tags [VERIFIED] /
+                                [ASSUMPTION] / [UNKNOWN].</p>
+                        </div>
+                    </div>
 
-    <div class="principle" style="grid-column: 1 / -1;">
-      <div class="principle-icon">🔃</div>
-      <div class="principle-body">
-        <h4>5. Maintenance vivante</h4>
-        <p>Le contexte se met à jour avec le projet. Un doc obsolète est pire qu'absence de doc — il induit l'IA en erreur. Intégrer la mise à jour des docs au workflow de développement.</p>
-      </div>
-    </div>
-  </div>
-</section>
+                    <div class="principle" style="grid-column: 1 / -1;">
+                        <div class="principle-icon">🔃</div>
+                        <div class="principle-body">
+                            <h4>5. Maintenance vivante</h4>
+                            <p>Le contexte se met à jour avec le projet. Un doc obsolète est pire qu'absence de doc — il
+                                induit l'IA en erreur. Intégrer la mise à jour des docs au workflow de développement.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 11 — Pour les développeurs
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <div class="audience-pill">👩‍💻 Développeurs</div>
-  <h2>Contexte pour le développement</h2>
+            <section>
+                <div class="audience-pill">👩‍💻 Développeurs</div>
+                <h2>Contexte pour le développement</h2>
 
-  <div class="cols">
-    <div>
-      <div class="card" style="border-left: 3px solid var(--color-accent); margin-bottom: 0.6rem;">
-        <h4>📄 AGENTS.md</h4>
-        <p>Fichier à la racine du projet — instructions permanentes pour l'IA: stack, patterns, conventions, choses à ne jamais faire.</p>
-      </div>
-      <div class="card" style="border-left: 3px solid var(--color-accent);">
-        <h4>🏗 Docs d'architecture</h4>
-        <p>Structure des modules, flow des données, choix techniques importants et <em>pourquoi</em> ils ont été faits.</p>
-      </div>
-    </div>
-    <div>
-      <pre style="height: 100%; margin: 0;"><code class="language-markdown"># AGENTS.md
+                <div class="cols">
+                    <div>
+                        <div class="card" style="border-left: 3px solid var(--color-accent); margin-bottom: 0.6rem;">
+                            <h4>📄 AGENTS.md</h4>
+                            <p>Fichier à la racine du projet — instructions permanentes pour l'IA: stack, patterns,
+                                conventions, choses à ne jamais faire.</p>
+                        </div>
+                        <div class="card" style="border-left: 3px solid var(--color-accent);">
+                            <h4>🏗 Docs d'architecture</h4>
+                            <p>Structure des modules, flow des données, choix techniques importants et <em>pourquoi</em>
+                                ils ont été faits.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <pre style="height: 100%; margin: 0;"><code class="language-markdown"># AGENTS.md
 
 ## Stack
 - Laravel 11, PHP 8.3
@@ -414,294 +433,320 @@ Comportement si le serveur est en retard: [UNKNOWN]</code></pre>
 - Logique métier dans les controllers
 - Accès direct à la DB depuis les vues
 - Transactions sans rollback explicite</code></pre>
-    </div>
-  </div>
-</section>
+                    </div>
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 12 — Pour les designers
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <div class="audience-pill" style="background: #7c3aed;">🎨 Designers</div>
-  <h2>Contexte pour le design</h2>
+            <section>
+                <div class="audience-pill" style="background: #7c3aed;">🎨 Designers</div>
+                <h2>Contexte pour le design</h2>
 
-  <div class="cols-3">
-    <div class="card">
-      <h4>🎨 Design System</h4>
-      <p>Composants documentés, règles d'utilisation, variantes autorisées et cas d'usage. L'IA génère des composants cohérents.</p>
-    </div>
-    <div class="card">
-      <h4>🎯 Tokens de design</h4>
-      <p>Couleurs, typographie, espacement, ombres — en format utilisable par l'IA (JSON ou Markdown).</p>
-    </div>
-    <div class="card">
-      <h4>🖼 Patterns visuels</h4>
-      <p>Règles d'accessibilité du projet, patterns de navigation, contraintes responsive et contexte de marque.</p>
-    </div>
-  </div>
+                <div class="cols-3">
+                    <div class="card">
+                        <h4>🎨 Design System</h4>
+                        <p>Composants documentés, règles d'utilisation, variantes autorisées et cas d'usage. L'IA génère
+                            des composants cohérents.</p>
+                    </div>
+                    <div class="card">
+                        <h4>🎯 Tokens de design</h4>
+                        <p>Couleurs, typographie, espacement, ombres — en format utilisable par l'IA (JSON ou Markdown).
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h4>🖼 Patterns visuels</h4>
+                        <p>Règles d'accessibilité du projet, patterns de navigation, contraintes responsive et contexte
+                            de marque.</p>
+                    </div>
+                </div>
 
-  <div class="card mt">
-    <h4>Exemple de contexte pour l'IA en design</h4>
-    <p>
-      <em>"Notre design system utilise Inter 16px base, accent indigo-600 (#4f46e5), radius 8px. Les boutons primaires ont toujours un état de loading. Les formulaires utilisent la validation inline, jamais de popup d'erreur. Accessibilité WCAG AA obligatoire."</em>
-    </p>
-    <p class="small mt">→ L'IA propose des designs alignés sur vos standards, pas des templates génériques.</p>
-  </div>
-</section>
+                <div class="card mt">
+                    <h4>Exemple de contexte pour l'IA en design</h4>
+                    <p>
+                        <em>"Notre design system utilise Inter 16px base, accent indigo-600 (#4f46e5), radius 8px. Les
+                            boutons primaires ont toujours un état de loading. Les formulaires utilisent la validation
+                            inline, jamais de popup d'erreur. Accessibilité WCAG AA obligatoire."</em>
+                    </p>
+                    <p class="small mt">→ L'IA propose des designs alignés sur vos standards, pas des templates
+                        génériques.</p>
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 13 — Pour les chefs de projet
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <div class="audience-pill" style="background: #059669;">📋 Chefs de projet</div>
-  <h2>Contexte pour la gestion de projet</h2>
+            <section>
+                <div class="audience-pill" style="background: #059669;">📋 Chefs de projet</div>
+                <h2>Contexte pour la gestion de projet</h2>
 
-  <div class="cols">
-    <div>
-      <div class="card" style="margin-bottom: 0.6rem;">
-        <h4>📝 Brief projet structuré</h4>
-        <p>Objectifs, contraintes, parties prenantes, définition du succès — une page que l'IA peut réutiliser à chaque interaction.</p>
-      </div>
-      <div class="card" style="margin-bottom: 0.6rem;">
-        <h4>👤 Profils utilisateurs</h4>
-        <p>Personas, besoins, contraintes des utilisateurs — permet à l'IA de prioriser et de rédiger en conséquence.</p>
-      </div>
-      <div class="card">
-        <h4>📖 Glossaire client</h4>
-        <p>Termes métier du client, acronymes, définitions — pour que l'IA parle le même langage que vos parties prenantes.</p>
-      </div>
-    </div>
-    <div>
-      <div class="card card-good">
-        <h4>Ce que ça débloque</h4>
-        <ul>
-          <li>Rédaction de user stories cohérentes</li>
-          <li>Emails clients personnalisés et pertinents</li>
-          <li>Résumés de réunions précis et actionnables</li>
-          <li>Priorisation de backlog alignée sur les objectifs</li>
-          <li>Estimations basées sur les vraies contraintes</li>
-          <li>Présentation des risques adaptée au contexte</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+                <div class="cols">
+                    <div>
+                        <div class="card" style="margin-bottom: 0.6rem;">
+                            <h4>📝 Brief projet structuré</h4>
+                            <p>Objectifs, contraintes, parties prenantes, définition du succès — une page que l'IA peut
+                                réutiliser à chaque interaction.</p>
+                        </div>
+                        <div class="card" style="margin-bottom: 0.6rem;">
+                            <h4>👤 Profils utilisateurs</h4>
+                            <p>Personas, besoins, contraintes des utilisateurs — permet à l'IA de prioriser et de
+                                rédiger en conséquence.</p>
+                        </div>
+                        <div class="card">
+                            <h4>📖 Glossaire client</h4>
+                            <p>Termes métier du client, acronymes, définitions — pour que l'IA parle le même langage que
+                                vos parties prenantes.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card card-good">
+                            <h4>Ce que ça débloque</h4>
+                            <ul>
+                                <li>Rédaction de user stories cohérentes</li>
+                                <li>Emails clients personnalisés et pertinents</li>
+                                <li>Résumés de réunions précis et actionnables</li>
+                                <li>Priorisation de backlog alignée sur les objectifs</li>
+                                <li>Estimations basées sur les vraies contraintes</li>
+                                <li>Présentation des risques adaptée au contexte</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SECTION HEADER — Phase 5: Vision
      ═══════════════════════════════════════════════════════════════════ -->
-<section class="slide-section">
-  <div class="section-num">Phase 5</div>
-  <h2>Au-delà du code</h2>
-  <p>Le contexte s'applique partout — vision d'un CRM alimenté par l'IA</p>
-</section>
+            <section class="slide-section">
+                <div class="section-num">Phase 5</div>
+                <h2>Au-delà du code</h2>
+                <p>Le contexte s'applique partout — vision d'un CRM alimenté par l'IA</p>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 14 — Au-delà du code
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <h2>Le contexte, ce n'est pas que pour le code</h2>
-  <p class="lede">Le même principe s'applique à toutes les interactions avec l'IA dans l'entreprise.</p>
+            <section>
+                <h2>Le contexte, ce n'est pas que pour le code</h2>
+                <p class="lede">Le même principe s'applique à toutes les interactions avec l'IA dans l'entreprise.</p>
 
-  <div class="cols">
-    <div class="card">
-      <h4>🏢 Pour une entreprise</h4>
-      <ul>
-        <li>Stratégie et positionnement</li>
-        <li>Culture et valeurs internes</li>
-        <li>Tone of voice et communication</li>
-        <li>Processus et workflows établis</li>
-        <li>Contraintes légales et réglementaires</li>
-      </ul>
-    </div>
-    <div class="card card-good">
-      <h4>🎯 Ce que ça change</h4>
-      <ul>
-        <li>L'IA rédige <strong>dans votre voix</strong>, pas une voix générique</li>
-        <li>Elle respecte vos processus existants</li>
-        <li>Elle tient compte de vos contraintes réelles</li>
-        <li>Elle personnalise chaque output au destinataire</li>
-        <li>Elle anticipe les questions de vos clients</li>
-      </ul>
-    </div>
-  </div>
+                <div class="cols">
+                    <div class="card">
+                        <h4>🏢 Pour une entreprise</h4>
+                        <ul>
+                            <li>Stratégie et positionnement</li>
+                            <li>Culture et valeurs internes</li>
+                            <li>Tone of voice et communication</li>
+                            <li>Processus et workflows établis</li>
+                            <li>Contraintes légales et réglementaires</li>
+                        </ul>
+                    </div>
+                    <div class="card card-good">
+                        <h4>🎯 Ce que ça change</h4>
+                        <ul>
+                            <li>L'IA rédige <strong>dans votre voix</strong>, pas une voix générique</li>
+                            <li>Elle respecte vos processus existants</li>
+                            <li>Elle tient compte de vos contraintes réelles</li>
+                            <li>Elle personnalise chaque output au destinataire</li>
+                            <li>Elle anticipe les questions de vos clients</li>
+                        </ul>
+                    </div>
+                </div>
 
-  <p class="small mt center">→ L'IA ne remplace pas l'expertise. Elle l'amplifie quand elle dispose du bon contexte.</p>
-</section>
+                <p class="small mt center">→ L'IA ne remplace pas l'expertise. Elle l'amplifie quand elle dispose du bon
+                    contexte.</p>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 15 — Vision CRM
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <h2>Vision: CRM interne alimenté par l'IA</h2>
-  <p class="lede">Même principe que les <code>/docs</code>, appliqué aux relations clients.</p>
+            <section>
+                <h2>Vision: CRM interne alimenté par l'IA</h2>
+                <p class="lede">Même principe que les <code>/docs</code>, appliqué aux relations clients.</p>
 
-  <div class="crm-flow">
-    <div class="crm-box">
-      📋 Fiche client<br/>
-      <span style="font-size:0.85em; font-weight:400; color:var(--color-muted);">historique, préférences, style comm.</span>
-    </div>
-    <div class="crm-arrow">→</div>
-    <div class="crm-box highlight">
-      🤖 Contexte IA<br/>
-      <span style="font-size:0.85em; font-weight:400;">enrichi &amp; structuré</span>
-    </div>
-    <div class="crm-arrow">→</div>
-    <div class="crm-box">
-      ✉️ Email personnalisé<br/>
-      <span style="font-size:0.85em; font-weight:400; color:var(--color-muted);">dans la bonne voix</span>
-    </div>
-  </div>
+                <div class="crm-flow">
+                    <div class="crm-box">
+                        📋 Fiche client<br />
+                        <span style="font-size:0.85em; font-weight:400; color:var(--color-muted);">historique,
+                            préférences, style comm.</span>
+                    </div>
+                    <div class="crm-arrow">→</div>
+                    <div class="crm-box highlight">
+                        🤖 Contexte IA<br />
+                        <span style="font-size:0.85em; font-weight:400;">enrichi &amp; structuré</span>
+                    </div>
+                    <div class="crm-arrow">→</div>
+                    <div class="crm-box">
+                        ✉️ Email personnalisé<br />
+                        <span style="font-size:0.85em; font-weight:400; color:var(--color-muted);">dans la bonne
+                            voix</span>
+                    </div>
+                </div>
 
-  <div class="cols">
-    <div class="card">
-      <h4>📁 Base de données clients</h4>
-      <ul>
-        <li>Historique des échanges et décisions</li>
-        <li>Préférences de communication</li>
-        <li>Projets en cours et objectifs</li>
-        <li>Points de friction identifiés</li>
-      </ul>
-    </div>
-    <div class="card card-good">
-      <h4>🚀 Ce que l'IA peut faire avec ça</h4>
-      <ul>
-        <li><strong>Emails personnalisés</strong> — ton adapté, références exactes</li>
-        <li><strong>Préparer des réunions</strong> — résumé contexte, points à aborder</li>
-        <li><strong>Anticiper les besoins</strong> — basé sur l'historique</li>
-        <li><strong>Rédiger des offres</strong> — alignées sur les priorités client</li>
-      </ul>
-    </div>
-  </div>
-</section>
+                <div class="cols">
+                    <div class="card">
+                        <h4>📁 Base de données clients</h4>
+                        <ul>
+                            <li>Historique des échanges et décisions</li>
+                            <li>Préférences de communication</li>
+                            <li>Projets en cours et objectifs</li>
+                            <li>Points de friction identifiés</li>
+                        </ul>
+                    </div>
+                    <div class="card card-good">
+                        <h4>🚀 Ce que l'IA peut faire avec ça</h4>
+                        <ul>
+                            <li><strong>Emails personnalisés</strong> — ton adapté, références exactes</li>
+                            <li><strong>Préparer des réunions</strong> — résumé contexte, points à aborder</li>
+                            <li><strong>Anticiper les besoins</strong> — basé sur l'historique</li>
+                            <li><strong>Rédiger des offres</strong> — alignées sur les priorités client</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 16 — Feuille de route
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <h2>Feuille de route — Commencer dès demain</h2>
-  <p class="lede">Trois étapes simples pour introduire le contexte dans votre workflow.</p>
+            <section>
+                <h2>Feuille de route — Commencer dès demain</h2>
+                <p class="lede">Trois étapes simples pour introduire le contexte dans votre workflow.</p>
 
-  <div class="roadmap">
-    <div class="roadmap-step">
-      <div class="step-num">1</div>
-      <div class="step-body">
-        <h4>Identifier le domaine à documenter</h4>
-        <p>Choisissez un projet, un processus, ou une relation client où vous utilisez déjà l'IA. Quel contexte manque-t-il systématiquement? Où les réponses sont-elles génériques ou incorrectes?</p>
-      </div>
-    </div>
+                <div class="roadmap">
+                    <div class="roadmap-step">
+                        <div class="step-num">1</div>
+                        <div class="step-body">
+                            <h4>Identifier le domaine à documenter</h4>
+                            <p>Choisissez un projet, un processus, ou une relation client où vous utilisez déjà l'IA.
+                                Quel contexte manque-t-il systématiquement? Où les réponses sont-elles génériques ou
+                                incorrectes?</p>
+                        </div>
+                    </div>
 
-    <div class="roadmap-step">
-      <div class="step-num">2</div>
-      <div class="step-body">
-        <h4>Créer un fichier de contexte — même simple</h4>
-        <p>Un document Markdown suffit. Commencez par: terminologie clé (5-10 termes), contraintes principales, architecture ou processus en 3 lignes. Ajoutez les tags [VERIFIED] / [ASSUMPTION] / [UNKNOWN].</p>
-      </div>
-    </div>
+                    <div class="roadmap-step">
+                        <div class="step-num">2</div>
+                        <div class="step-body">
+                            <h4>Créer un fichier de contexte — même simple</h4>
+                            <p>Un document Markdown suffit. Commencez par: terminologie clé (5-10 termes), contraintes
+                                principales, architecture ou processus en 3 lignes. Ajoutez les tags [VERIFIED] /
+                                [ASSUMPTION] / [UNKNOWN].</p>
+                        </div>
+                    </div>
 
-    <div class="roadmap-step">
-      <div class="step-num">3</div>
-      <div class="step-body">
-        <h4>Tester avec l'IA, mesurer, itérer</h4>
-        <p>Posez la même question qu'avant, avec et sans votre doc. Comparez les résultats. Ajoutez ce qui manque. Un bon contexte se construit en 2-3 itérations de 15 minutes.</p>
-      </div>
-    </div>
-  </div>
-</section>
+                    <div class="roadmap-step">
+                        <div class="step-num">3</div>
+                        <div class="step-body">
+                            <h4>Tester avec l'IA, mesurer, itérer</h4>
+                            <p>Posez la même question qu'avant, avec et sans votre doc. Comparez les résultats. Ajoutez
+                                ce qui manque. Un bon contexte se construit en 2-3 itérations de 15 minutes.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SECTION HEADER — Phase 6: Close
      ═══════════════════════════════════════════════════════════════════ -->
-<section class="slide-section">
-  <div class="section-num">Phase 6</div>
-  <h2>Résumé</h2>
-  <p>Ce qu'on retient</p>
-</section>
+            <section class="slide-section">
+                <div class="section-num">Phase 6</div>
+                <h2>Résumé</h2>
+                <p>Ce qu'on retient</p>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 17 — Résumé
      ═══════════════════════════════════════════════════════════════════ -->
-<section>
-  <h2>Ce qu'on retient</h2>
+            <section>
+                <h2>Ce qu'on retient</h2>
 
-  <div class="cols">
-    <div>
-      <div class="card" style="border-left: 3px solid var(--color-accent); margin-bottom:0.6rem;">
-        <h4>🧠 L'IA est un raisonneur, pas un oracle</h4>
-        <p>Elle est aussi bonne que le contexte qu'on lui fournit. Garbage in, garbage out — mais aussi: excellent contexte in, excellent output out.</p>
-      </div>
-      <div class="card" style="border-left: 3px solid var(--color-accent); margin-bottom:0.6rem;">
-        <h4>📄 Les docs ne sont pas pour les humains seulement</h4>
-        <p>Un fichier de contexte bien structuré est un investissement qui profite à toute l'équipe — et à l'IA qui les assiste.</p>
-      </div>
-      <div class="card" style="border-left: 3px solid var(--color-accent);">
-        <h4>🔃 C'est un processus vivant</h4>
-        <p>Le contexte s'améliore avec le temps. Chaque itération avec l'IA révèle ce qui manque dans la documentation.</p>
-      </div>
-    </div>
-    <div class="card card-good" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding: 1.5rem;">
-      <p style="font-size:0.7em; font-weight:700; color:var(--color-text); line-height:1.4; margin:0;">
-        "Donnez à l'IA votre contexte,<br/>et elle travaille comme un<br/><span class="accent">membre de l'équipe.</span>"
-      </p>
-      <hr style="width:60%; margin: 0.8rem 0;" />
-      <p class="small" style="margin:0;">Sans contexte, elle invente.<br/>Avec contexte, elle excelle.</p>
-    </div>
-  </div>
-</section>
+                <div class="cols">
+                    <div>
+                        <div class="card" style="border-left: 3px solid var(--color-accent); margin-bottom:0.6rem;">
+                            <h4>🧠 L'IA est un raisonneur, pas un oracle</h4>
+                            <p>Elle est aussi bonne que le contexte qu'on lui fournit. Garbage in, garbage out — mais
+                                aussi: excellent contexte in, excellent output out.</p>
+                        </div>
+                        <div class="card" style="border-left: 3px solid var(--color-accent); margin-bottom:0.6rem;">
+                            <h4>📄 Les docs ne sont pas pour les humains seulement</h4>
+                            <p>Un fichier de contexte bien structuré est un investissement qui profite à toute l'équipe
+                                — et à l'IA qui les assiste.</p>
+                        </div>
+                        <div class="card" style="border-left: 3px solid var(--color-accent);">
+                            <h4>🔃 C'est un processus vivant</h4>
+                            <p>Le contexte s'améliore avec le temps. Chaque itération avec l'IA révèle ce qui manque
+                                dans la documentation.</p>
+                        </div>
+                    </div>
+                    <div class="card card-good"
+                        style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding: 1.5rem;">
+                        <p
+                            style="font-size:0.7em; font-weight:700; color:var(--color-text); line-height:1.4; margin:0;">
+                            "Donnez à l'IA votre contexte,<br />et elle travaille comme un<br /><span
+                                class="accent">membre de l'équipe.</span>"
+                        </p>
+                        <hr style="width:60%; margin: 0.8rem 0;" />
+                        <p class="small" style="margin:0;">Sans contexte, elle invente.<br />Avec contexte, elle
+                            excelle.</p>
+                    </div>
+                </div>
+            </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════════════════════════════
      SLIDE 18 — Questions & Discussion
      ═══════════════════════════════════════════════════════════════════ -->
-<section class="slide-close">
-  <div>
-    <div class="eyebrow center" style="margin: 0 auto 1rem; display:flex; justify-content:center;">✦ Discussion</div>
-    <div class="big-quote">Questions &amp; <em>échanges</em></div>
-    <p class="lede center" style="max-width: 36ch; margin: 0.6em auto;">
-      Qu'est-ce qui vous manque le plus dans votre workflow actuel avec l'IA?<br />
-      Quel domaine voudriez-vous documenter en premier?
-    </p>
-    <hr style="width:60%; margin: 1rem auto;" />
-    <div style="display:flex; justify-content:center; gap:0.8rem; flex-wrap:wrap; margin-top: 0.5rem;">
-      <span class="role-badge">🏗 Architecture</span>
-      <span class="role-badge">🎨 Design System</span>
-      <span class="role-badge">📋 Briefs projet</span>
-      <span class="role-badge">👤 Contexte client</span>
-      <span class="role-badge">📖 Glossaire métier</span>
-    </div>
-  </div>
-</section>
+            <section class="slide-close">
+                <div>
+                    <div class="eyebrow center" style="margin: 0 auto 1rem; display:flex; justify-content:center;">✦
+                        Discussion</div>
+                    <div class="big-quote">Questions &amp; <em>échanges</em></div>
+                    <p class="lede center" style="max-width: 36ch; margin: 0.6em auto;">
+                        Qu'est-ce qui vous manque le plus dans votre workflow actuel avec l'IA?<br />
+                        Quel domaine voudriez-vous documenter en premier?
+                    </p>
+                    <hr style="width:60%; margin: 1rem auto;" />
+                    <div style="display:flex; justify-content:center; gap:0.8rem; flex-wrap:wrap; margin-top: 0.5rem;">
+                        <span class="role-badge">🏗 Architecture</span>
+                        <span class="role-badge">🎨 Design System</span>
+                        <span class="role-badge">📋 Briefs projet</span>
+                        <span class="role-badge">👤 Contexte client</span>
+                        <span class="role-badge">📖 Glossaire métier</span>
+                    </div>
+                </div>
+            </section>
 
-</div><!-- /.slides -->
-</div><!-- /.reveal -->
+        </div><!-- /.slides -->
+    </div><!-- /.reveal -->
 
-<!-- ═══════════════════════════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════════════════════
      Reveal.js 5 + Plugins
      ═══════════════════════════════════════════════════════════════════ -->
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
 
-<script>
-  Reveal.initialize({
-    hash: true,
-    slideNumber: 'c/t',
-    progress: true,
-    controls: true,
-    controlsTutorial: false,
-    center: false,
-    width: 1280,
-    height: 720,
-    margin: 0.04,
-    minScale: 0.2,
-    maxScale: 2.0,
-    transition: 'slide',
-    transitionSpeed: 'fast',
-    backgroundTransition: 'fade',
-    plugins: [ RevealHighlight, RevealNotes ],
-    highlight: {
-      highlightOnLoad: true,
-    },
-  });
-</script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: 'c/t',
+            progress: true,
+            controls: true,
+            controlsTutorial: false,
+            center: false,
+            width: 1280,
+            height: 720,
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0,
+            transition: 'slide',
+            transitionSpeed: 'fast',
+            backgroundTransition: 'fade',
+            plugins: [RevealHighlight, RevealNotes],
+            highlight: {
+                highlightOnLoad: true,
+            },
+        });
+    </script>
 </body>
+
 </html>
