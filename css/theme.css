@@ -44,7 +44,9 @@
 
 .reveal .slides section {
   text-align: left;
-  padding: 0 2.4rem;
+  padding: 0 3rem;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* ── Typography ─────────────────────────────────────────────── */
