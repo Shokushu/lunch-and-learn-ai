@@ -61,4 +61,4 @@ Pour activer GitHub Pages:
 1. Aller dans **Settings → Pages**
 2. Source: **Deploy from a branch**
 3. Branch: `main`, dossier: `/ (root)`
-4. Sauvegarder — la présentation sera disponible sur `https://<user>.github.io/<repo>/`
+4. Sauvegarder — la présentation sera disponible sur `https://shokushu.github.io/lunch-and-learn-ai/`
